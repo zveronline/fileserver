@@ -1,0 +1,16 @@
+<style type="text/css"> @import url("/.nginxy/css/buttons.css"); </style>
+
+<div id="footer" class="row">
+<center >
+<form method="GET" action="/fancyindex-logic.php" id="zipdir_form">
+  <input type="checkbox" name="autodownload" value="1"
+        title="Auto Download On Ready" id="df_new_cb"/>
+  <input type="submit" name="action" value="Create Archive" id="df_new" class="f-button"/>
+  <input type="submit" name="action" value="Delete Archive" id="df_del" class="f-button"/>
+  <input type="submit" name="action" value="Download Archive" id="df_get" class="f-button"/>
+</form>
+<br><a id="archive_link" href="#"></a>
+<br><a id="dashboard" href="/fancyindex-logic.php?action=dashboard">Dashboard</a>
+</div>
+
+<script src="/.nginxy/js/archived_dir.js"></script>

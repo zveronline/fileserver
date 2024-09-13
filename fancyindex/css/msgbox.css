@@ -1,0 +1,29 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Montserrat, sans-serif;
+}
+.msgbox {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  border: unset;
+  border-bottom: 2px solid #e3e3e3;
+  outline: none;
+  font-weight: bold;
+}
+.txt_center {
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px;
+}
+.msgbody {
+  margin: 1em;
+  padding: 1em;
+}
+p {
+  margin: 10px 0;
+}
+

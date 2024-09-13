@@ -29,8 +29,8 @@ RUN apk add --update --no-cache supervisor tzdata nginx php82-fpm php82-zip ngin
 
 ADD fancyindex /etc/default/nginx/fancyindex
 # RUN cp -r /config/fileserv/modules /etc/default/nginx/ \
-RUN mkdir -p /etc/default/nginx/vhosts.a \
-&& cp -r /config/vhosts/* /etc/default/nginx/vhosts
+RUN mkdir -p /etc/default/nginx/vhosts \
+&& cp -r /config/vhosts/* /etc/default/nginx/vhosts/
 
 VOLUME ["/srv", "/etc/nginx", "/etc/php82"]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]

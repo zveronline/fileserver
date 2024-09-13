@@ -3,10 +3,8 @@ set -e
 
 if [ ! -f /etc/nginx/nginx.conf ]
 then
-  mkdir -p /etc/nginx/vhosts.a
-  mkdir -p /etc/nginx/vhosts.d
+  mkdir -p /etc/nginx/vhosts
   mkdir -p /etc/nginx/default.d
-  mkdir -p /etc/nginx/ssl
 fi
 
 mkdir -p /etc/php82

@@ -1,0 +1,37 @@
+
+services:
+  fileserv:
+    image: ghcr.io/zveronline/fileserver:latest
+    restart: always
+    volumes:
+      - /mnt/docker/fileserv/srv:/srv
+      - /mnt/docker/fileserv/etc-nginx:/etc/nginx
+      - /mnt/docker/fileserv/etc-php:/etc/php82
+      - soft:/srv/fileserv/soft
+      - music:/srv/fileserv/Music
+      - video:/srv/fileserv/Video
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fileserv.rule=Host(`file.zveronline.ru`)"
+      - "traefik.http.routers.fileserv.entrypoints=websecure"
+      - "traefik.http.routers.fileserv.tls.certresolver=cloudflare"
+      - "traefik.http.routers.fileserv.tls.domains[0].main=zveronline.ru"
+      - "traefik.http.routers.fileserv.tls.domains[0].sans=*.zveronline.ru"
+      - "traefik.http.routers.fileserv-http.rule=Host(`file.zveronline.ru`)"
+      - "traefik.http.routers.fileserv-http.entrypoints=web"
+      - "traefik.http.routers.fileserv-http.priority=2000"
+      - "traefik.http.services.fileserv.loadbalancer.server.port=80"
+      - "traefik.docker.network=docker"
+    networks:
+      - docker
+
+networks:
+  docker:
+    external: true
+volumes:
+  video:
+    external: true
+  music:
+    external: true
+  soft:
+    external: true

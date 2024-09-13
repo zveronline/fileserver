@@ -6,7 +6,7 @@ LANGUAGE=ru_RU.UTF-8
 ADD config /config
 ADD entrypoint.sh /entrypoint.sh
 
-RUN apk add --update --no-cache supervisor tzdata nginx php82-fpm php82-zip nginx-mod-http-fancyindex apache2-utils \
+RUN apk add --update --no-cache supervisor tzdata nginx php82-fpm php82-zip nginx-mod-http-fancyindex apache2-utils zip \
 && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
 && echo "Europe/Moscow" > /etc/timezone \
 && apk del tzdata \

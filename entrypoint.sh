@@ -18,6 +18,7 @@ rm -f /etc/nginx/conf.d/default.conf
 chown -R nginx:nginx /etc/nginx
 
 mkdir -p /srv/fileserv
+mkdir -p /srv/fileserv/.nginxy
 cp -r /etc/default/nginx/fancyindex/* /srv/fileserv/.nginxy
 mkdir -p /tmp/fileserv
 chown -R nginx:nginx /tmp/fileserv

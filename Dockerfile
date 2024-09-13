@@ -34,4 +34,4 @@ RUN cp -r /config/fileserv/modules /etc/default/nginx/ \
 
 VOLUME ["/srv", "/etc/nginx", "/etc/php82"]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["sh", "/entrypoint.sh"]

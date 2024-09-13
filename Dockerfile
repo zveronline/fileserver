@@ -6,8 +6,7 @@ LANGUAGE=ru_RU.UTF-8
 ADD config /config
 ADD entrypoint.sh /entrypoint.sh
 
-RUN apk add --update --no-cache supervisor tzdata nginx php82-fpm php82-zip nginx-mod-http-fancyindex apache2-utils
-
+RUN apk add --update --no-cache supervisor tzdata nginx php82-fpm php82-zip nginx-mod-http-fancyindex apache2-utils \
 && cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime \
 && echo "Europe/Moscow" > /etc/timezone \
 && apk del tzdata \
@@ -22,16 +21,15 @@ RUN apk add --update --no-cache supervisor tzdata nginx php82-fpm php82-zip ngin
 && mkdir -p /run/php-fpm \
 && cp /config/supervisor/nginx.ini /etc/supervisor.d/nginx.ini \
 && cp /config/supervisor/php-fpm.ini /etc/supervisor.d/php-fpm.ini \
-
 && cp /config/nginx/nginx.conf /etc/default/nginx/nginx.conf \
 && cp /config/nginx/php-fpm.conf /etc/default/nginx/conf.d/php-fpm.conf \
 && cp /config/nginx/php.conf /etc/default/nginx/default.d/php.conf \
 && cp /config/php/php.ini /etc/default/php82/php.ini \
-&& cp /config/php/www.conf /etc/default/php82/php-fpm.d/www.conf \
+&& cp /config/php/www.conf /etc/default/php82/php-fpm.d/www.conf
 
 ADD fancyindex /etc/default/nginx/fancyindex
-RUN cp -r /config/fileserv/modules /etc/default/nginx/
-RUN mkdir -p /etc/default/nginx/vhosts.a \
+RUN cp -r /config/fileserv/modules /etc/default/nginx/ \
+&& mkdir -p /etc/default/nginx/vhosts.a \
 && cp -r /config/vhosts/* /etc/default/nginx/vhosts
 
 VOLUME ["/srv", "/etc/nginx", "/etc/php82"]

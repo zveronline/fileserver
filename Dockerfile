@@ -4,6 +4,7 @@ ENV LANG=ru_RU.UTF-8 \
 LANGUAGE=ru_RU.UTF-8
 
 ADD config /config
+ADD srv /srv/fileserv
 ADD entrypoint.sh /entrypoint.sh
 
 RUN apk add --update --no-cache supervisor tzdata nginx php82-fpm php82-zip nginx-mod-http-fancyindex apache2-utils zip \

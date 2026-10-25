@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM nginx:stable-alpine-otel
 
 ENV LANG=ru_RU.UTF-8 \
 LANGUAGE=ru_RU.UTF-8
